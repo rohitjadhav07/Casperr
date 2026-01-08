@@ -1,0 +1,25 @@
+[package]
+name = "civictrust-contracts"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+odra = "1.5"
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[[bin]]
+name = "civictrust_escrow"
+path = "src/bin/escrow.rs"
+test = false
+
+[[bin]]
+name = "civictrust_reputation"
+path = "src/bin/reputation.rs"
+test = false
+
+[profile.release]
+opt-level = "z"
+lto = true
+codegen-units = 1
