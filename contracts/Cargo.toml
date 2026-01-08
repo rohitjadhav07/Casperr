@@ -4,22 +4,15 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-odra = "1.5"
+casper-contract = "4.0"
+casper-types = "4.0"
 
 [lib]
-crate-type = ["cdylib", "rlib"]
-
-[[bin]]
-name = "civictrust_escrow"
-path = "src/bin/escrow.rs"
-test = false
-
-[[bin]]
-name = "civictrust_reputation"
-path = "src/bin/reputation.rs"
-test = false
+crate-type = ["cdylib"]
+path = "src/lib.rs"
 
 [profile.release]
 opt-level = "z"
 lto = true
 codegen-units = 1
+panic = "abort"
